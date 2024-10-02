@@ -1,7 +1,9 @@
 .data
-test_case:
-    .word 3 
-    .word 0, 1, 1024 
+num_test_cases: 
+    .word 3
+
+test_case_array: 
+    .word 0 1 1024
     
 newline:
     .asciz "\n" 
@@ -10,10 +12,10 @@ newline:
 .globl main
 
 main:
-    la t0, test_case
-    lw t1, 0(t0)            # number of test_case
-    addi t0, t0, 4          # address of test_case
-    li t2, 0                # i = 0
+    la t0, num_test_cases   # Load address of num_test_cases into t0
+    lw t1, 0(t0)            # Load the number of test cases into t1
+    la t0, test_case_array  # Load address of test_case_array into t0
+    li t2, 0                # Initialize loop counter i = 0
 
 loop_main:
     beq t1, t2, end_main    # If i == number of test cases, exit loop

@@ -18,9 +18,11 @@ int main() {
         Test case 3: Input 1024, binary: 00000000 00000000 00000100 00000000, Expected: 21
     */
     int test_case[] = {0, 1, 1024};
+
     for (int i = 0; i < 3; ++i) {
         printf("%d\n", my_clz(test_case[i]));
     }
+    
     return 0;
 }
 
