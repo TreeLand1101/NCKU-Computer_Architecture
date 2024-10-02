@@ -2,6 +2,7 @@
 test_case:
     .word 3 
     .word 0, 1, 1024 
+    
 newline:
     .asciz "\n" 
 
