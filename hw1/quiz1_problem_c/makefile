@@ -5,10 +5,10 @@ CC = gcc
 CFLAGS = -Wall -Wextra -std=c99
 
 # Target executable
-TARGET = fabsf
+TARGET = my_clz
 
 # Source files
-SRCS = fabsf.c
+SRCS = my_clz.c
 
 # Object files
 OBJS = $(SRCS:.c=.o)
