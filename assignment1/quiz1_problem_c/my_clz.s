@@ -18,7 +18,7 @@ main:
     li t2, 0  
 
 loop_main:
-    beq t1, t2, end_main    # If i == number of test cases, exit loop
+    beq t1, t2, end_main    # if (i == number) of test cases, exit loop
     lw a0, 0(t0)            # test_case[i]
 
     jal ra, my_clz
