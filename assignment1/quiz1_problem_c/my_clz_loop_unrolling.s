@@ -12,15 +12,12 @@ newline:
 .globl main
 
 main:
-    la t0, num_test_cases 
-    lw t1, 0(t0)
+    lw t1, 3
     la t0, test_case_array
     li t2, 0  
 
-loop_main:
-    beq t1, t2, end_main    # If i == number of test cases, exit loop
-    lw a0, 0(t0)            # test_case[i]
-
+test_case0:
+    lw a0, 0(t0) 
     jal ra, my_clz
 
     li a7, 1                # System call code for print integer
@@ -32,7 +29,31 @@ loop_main:
 
     addi t0, t0, 4          # Next test_case
     addi t2, t2, 1          # i++
-    j loop_main
+
+test_case1:
+    lw a0, 0(t0)
+    jal ra, my_clz
+
+    li a7, 1            
+    ecall
+
+    la a0, newline  
+    li a7, 4  
+    ecall
+
+    addi t0, t0, 4  
+    addi t2, t2, 1 
+    
+test_case2:
+    lw a0, 0(t0) 
+    jal ra, my_clz
+
+    li a7, 1    
+    ecall
+
+    la a0, newline  
+    li a7, 4
+    ecall
 
 end_main:
     li a7, 10               # System call code for exit
