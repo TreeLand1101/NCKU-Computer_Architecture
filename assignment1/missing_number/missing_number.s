@@ -1,20 +1,20 @@
 .data
-nums1:      
+nums0:      
     .word 3, 0, 1  
 
-nums2:      
+nums1:      
     .word 0, 1 
 
-nums3:      
+nums2:      
     .word 9, 6, 4, 2, 3, 5, 7, 0, 1 
 
-len_nums1:  
+len_nums0:  
     .word 3
 
-len_nums2:  
+len_nums1:  
     .word 2 
 
-len_nums3:  
+len_nums2:  
     .word 9  
 
 newline:    
@@ -24,9 +24,9 @@ newline:
 .globl main
 
 main:
-    # missing number of num1
-    la a0, nums1 
-    lw a1, len_nums1 
+    # missing number of num0
+    la a0, nums0
+    lw a1, len_nums0
     jal ra, missing_number
     li a7, 1                        # System call code for print integer
     ecall
@@ -35,9 +35,9 @@ main:
     li a7, 4                        # System call code for print string
     ecall
 
-    # missing number of num2
-    la a0, nums2   
-    lw a1, len_nums2 
+    # missing number of num1
+    la a0, nums1
+    lw a1, len_nums1 
     jal ra, missing_number 
     li a7, 1 
     ecall
@@ -46,9 +46,9 @@ main:
     li a7, 4  
     ecall
 
-    # missing number of num3
-    la a0, nums3 
-    lw a1, len_nums3
+    # missing number of num2
+    la a0, nums2 
+    lw a1, len_nums2
     jal ra, missing_number
     li a7, 1 
     ecall

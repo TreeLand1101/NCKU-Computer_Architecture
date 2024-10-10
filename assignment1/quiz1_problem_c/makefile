@@ -1,31 +1,19 @@
-# Compiler
 CC = gcc
 
-# Compiler flags
 CFLAGS = -Wall -Wextra -std=c99
 
-# Target executable
-TARGET = my_clz
+SRCS = $(wildcard *.c)
 
-# Source files
-SRCS = my_clz.c
+EXES = $(SRCS:.c=)
 
-# Object files
 OBJS = $(SRCS:.c=.o)
 
-# Default rule to build the program
-all: $(TARGET)
+all: $(EXES)
 
-# Rule to link object files and create the executable
-$(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
+%: %.c
+	$(CC) $(CFLAGS) -o $@ $<
 
-# Rule to compile .c files into .o files
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
-# Clean rule to remove generated files
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f $(EXES) $(OBJS)
 
-
+.PHONY: all clean
